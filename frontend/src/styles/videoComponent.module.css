@@ -1,0 +1,452 @@
+/* ===== COLLABX VIDEO MEET - GOOGLE MEET STYLE ===== */
+
+.meetVideoContainer {
+    position: relative;
+    height: 100vh;
+    background: #202124;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Top bar */
+.meet-top-bar {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 15;
+    display: flex;
+    gap: 8px;
+}
+
+.meet-top-btn {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.meet-top-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Main video area */
+.conferenceView {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 16px 100px 16px;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.conferenceView video {
+    border-radius: 12px;
+    object-fit: cover;
+    background: #3c4043;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.conferenceView.single-video video {
+    width: 80%;
+    max-width: 900px;
+    height: calc(100vh - 200px);
+    max-height: 600px;
+}
+
+.conferenceView.few-videos {
+    align-content: center;
+}
+
+.conferenceView.few-videos video {
+    width: 48%;
+    max-width: 500px;
+    height: 280px;
+}
+
+.conferenceView.many-videos video {
+    width: 260px;
+    height: 180px;
+}
+
+/* Self view */
+.meetUserVideo {
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    height: 140px;
+    width: 210px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.15);
+    object-fit: cover;
+    z-index: 10;
+    background: #3c4043;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+/* Bottom controls */
+.buttonContainers {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: rgba(32, 33, 36, 0.95);
+    padding: 6px 20px;
+    border-radius: 28px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.buttonContainers button {
+    transition: all 0.2s ease !important;
+    border-radius: 50% !important;
+    padding: 10px !important;
+    color: rgba(255,255,255,0.8) !important;
+}
+
+.buttonContainers button:hover {
+    background: rgba(255,255,255,0.1) !important;
+    color: white !important;
+}
+
+.buttonContainers svg {
+    font-size: 1.3rem;
+}
+
+.buttonContainers .end-call-btn {
+    background: #ea4335 !important;
+    border-radius: 50% !important;
+    padding: 14px !important;
+    color: white !important;
+}
+
+.buttonContainers .end-call-btn:hover {
+    background: #d33426 !important;
+}
+
+/* Participants Panel */
+.participants-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #ffffff;
+    width: 320px;
+    z-index: 30;
+    box-shadow: 4px 0 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    animation: slideLeft 0.2s ease-out;
+    border-radius: 0 12px 12px 0;
+}
+
+@keyframes slideLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.participants-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e8eaed;
+}
+
+.participants-header h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #202124;
+    margin: 0;
+}
+
+.participants-close {
+    background: none;
+    border: none;
+    color: #5f6368;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.participants-close:hover {
+    background: #f1f3f4;
+}
+
+.participants-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+}
+
+.participant-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #202124;
+    margin-bottom: 2px;
+}
+
+.participant-item:hover {
+    background: #f8f9fa;
+}
+
+.participant-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+}
+
+/* Chat Panel - FIXED */
+.chatRoom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background: #ffffff;
+    width: 340px;
+    z-index: 30;
+    box-shadow: -4px 0 30px rgba(0,0,0,0.3);
+    animation: slideRight 0.2s ease-out;
+    border-radius: 12px 0 0 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes slideRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.chatContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e8eaed;
+    flex-shrink: 0;
+}
+
+.chat-header h1 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #202124;
+    margin: 0;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: #5f6368;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.chat-close:hover {
+    background: #f1f3f4;
+}
+
+.chattingDisplay {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+}
+
+.chat-msg.me {
+    align-self: flex-end;
+}
+
+.chat-msg-sender {
+    font-size: 11px;
+    color: #5f6368;
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.chat-msg-text {
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 16px;
+    background: #f1f3f4;
+    color: #202124;
+    word-wrap: break-word;
+}
+
+.chat-msg.me .chat-msg-text {
+    background: #1a73e8;
+    color: white;
+}
+
+.chattingArea {
+    padding: 12px 16px;
+    border-top: 1px solid #e8eaed;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+    background: #ffffff;
+}
+
+.chattingArea .MuiOutlinedInput-root {
+    border-radius: 24px !important;
+    flex: 1;
+    background: #f1f3f4;
+}
+
+.chattingArea .MuiOutlinedInput-root fieldset {
+    border: none !important;
+}
+
+.chattingArea .MuiButton-root {
+    background: #1a73e8 !important;
+    border-radius: 24px !important;
+    text-transform: none !important;
+    font-weight: 500 !important;
+    padding: 6px 16px !important;
+    min-width: auto !important;
+    font-size: 13px !important;
+}
+
+/* Share Modal */
+.share-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.share-modal {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    width: 440px;
+    text-align: center;
+}
+
+.share-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #202124;
+    margin: 0 0 8px;
+}
+
+.share-modal p {
+    font-size: 14px;
+    color: #5f6368;
+    margin: 0 0 24px;
+}
+
+.share-link-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.share-link-box input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #202124;
+    background: #f8f9fa;
+}
+
+.share-copy-btn {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.share-copy-btn:hover {
+    background: #1557b0;
+}
+
+.share-close-btn {
+    background: none;
+    border: none;
+    color: #5f6368;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+
+.share-close-btn:hover {
+    background: #f1f3f4;
+}
+
+@media (max-width: 768px) {
+    .meetUserVideo {
+        height: 100px;
+        width: 140px;
+        bottom: 85px;
+        right: 8px;
+    }
+    .conferenceView video {
+        width: 100% !important;
+        height: 200px !important;
+    }
+    .chatRoom, .participants-panel {
+        width: 100%;
+        border-radius: 0;
+    }
+    .buttonContainers {
+        gap: 6px;
+        padding: 4px 12px;
+    }
+    .buttonContainers svg {
+        font-size: 1.1rem;
+    }
+    
+}
+@keyframes fadeUp {
+    0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    70% { opacity: 1; transform: translateX(-50%) translateY(-20px); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-40px); }
+}

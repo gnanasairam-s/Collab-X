@@ -1,0 +1,252 @@
+/* ===== COLLABX LANDING PAGE - WHITE THEME ===== */
+
+.landingPageContainer {
+    width: 100vw;
+    min-height: 100vh;
+    background: #ffffff;
+    color: #1a1a2e;
+    overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+.landingPageContainer nav {
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    position: relative;
+    z-index: 10;
+    background: #ffffff;
+}
+
+.navHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navHeader img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.navHeader h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 0;
+    color: #1a1a2e;
+}
+
+.navHeader h2 .teal {
+    color: #1ABC9C;
+}
+
+.navHeader h2 .blue {
+    color: #2E86C1;
+}
+
+.navlist {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navlist p {
+    font-size: 14px;
+    color: #6b7280;
+    transition: color 0.2s;
+    margin: 0;
+    cursor: pointer;
+}
+
+.navlist p:hover {
+    color: #1a1a2e;
+}
+
+.navlist div[role='button'] {
+    background: #2E86C1;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.navlist div[role='button']:hover {
+    background: #2471a3;
+    box-shadow: 0 4px 15px rgba(46, 134, 193, 0.3);
+}
+
+.navlist div[role='button'] p {
+    color: white;
+    margin: 0;
+}
+
+/* ===== HERO SECTION ===== */
+.landingMainContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    min-height: calc(100vh - 80px);
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+.landingMainContainer > div:first-child {
+    flex: 1;
+}
+
+.landingMainContainer h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+    color: #1a1a2e;
+}
+
+.highlight-teal {
+    color: #1ABC9C;
+}
+
+.highlight-blue {
+    color: #2E86C1;
+}
+
+.landingMainContainer > div:first-child p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin-bottom: 32px;
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.cta-primary {
+    background: #2E86C1;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-primary:hover {
+    background: #2471a3;
+    box-shadow: 0 6px 20px rgba(46, 134, 193, 0.35);
+    transform: translateY(-1px);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: #1a1a2e;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #d1d5db;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.cta-secondary:hover {
+    border-color: #2E86C1;
+    color: #2E86C1;
+    background: rgba(46, 134, 193, 0.03);
+}
+
+.landingMainContainer > div:last-child {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landingMainContainer > div:last-child img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+}
+
+/* ===== FEATURE STRIP ===== */
+.feature-strip {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px 80px;
+    border-top: 1px solid #e5e7eb;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.feature-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2E86C1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .landingPageContainer nav {
+        padding: 16px 24px;
+    }
+    
+    .landingMainContainer {
+        flex-direction: column;
+        padding: 40px 24px;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .landingMainContainer h1 {
+        font-size: 2.2rem;
+    }
+    
+    .landingMainContainer > div:first-child p {
+        margin: 0 auto 32px;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+    
+    .feature-strip {
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+        align-items: center;
+    }
+    
+    .navlist {
+        gap: 12px;
+    }
+}
